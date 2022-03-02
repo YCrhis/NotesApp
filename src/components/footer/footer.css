@@ -1,0 +1,12 @@
+.footer {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  border-top: solid 0.5px rgb(82, 82, 82);
+}
+.footer p {
+  text-align: center;
+  color: gray;
+  font-size: 12px;
+}

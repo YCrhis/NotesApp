@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { AddNote } from './components/AddNote/AddNote';
+import { Banner } from './components/Banner/Banner';
+
+import { NoteList } from './Notes/components/NoteList';
+import NotesProvider from './Notes/context/NotesProvider';
+
+import { Content } from './components/layouts/Content'
+import { Subheader } from './components/header/Subheader';
+import { ModalProvider } from './Modal/context/ModalProvider';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NotesProvider>
+      <ModalProvider>
+        <Content>
+          <Banner />
+          <Subheader />
+          <NoteList />
+        </Content>
+      </ModalProvider>
+    </NotesProvider>
   );
 }
 

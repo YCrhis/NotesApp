@@ -1,0 +1,100 @@
+.subheader {
+  background: rgb(46, 35, 59);
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subheader__userInformation h5 {
+  font-size: 18px;
+}
+
+.subheader__userInformation p {
+  font-size: 13px;
+  margin-top: 2px;
+  color: gray;
+}
+
+.subheader__user {
+  display: flex;
+  align-items: center;
+}
+.subheader__user img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.subheader__options button {
+  cursor: pointer;
+  transition: all 500ms;
+}
+.subheader__options button:first-child {
+  background: rgb(68, 68, 255);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  margin-right: 10px;
+  border-radius: 2rem;
+  font-weight: bolder;
+}
+
+.subheader__options button:first-child:hover {
+  background: rgb(33, 33, 255);
+}
+
+.subheader__options button:nth-child(2) {
+  background: rgb(255, 100, 139);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  margin-right: 10px;
+  border-radius: 2rem;
+  font-weight: bolder;
+}
+
+.subheader__options button:nth-child(2):hover {
+  background: rgb(255, 56, 106);
+}
+
+.subheader__options button:nth-child(3) {
+  background: rgb(134, 68, 255);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  margin-right: 10px;
+  border-radius: 2rem;
+  font-weight: bolder;
+}
+
+.subheader__options button:nth-child(3):hover {
+  background: rgb(115, 40, 255);
+}
+
+.subheader .button__active {
+  background: teal !important;
+  transition: all 500ms;
+}
+
+@media (max-width: 1200px) {
+  .subheader {
+    flex-direction: column;
+  }
+  .subheader__options {
+    display: flex;
+    flex-direction: column;
+  }
+  .subheader__options button {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .subheader__options button:nth-child(1) {
+    margin-top: 1rem;
+  }
+}
