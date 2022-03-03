@@ -1,33 +1,24 @@
-import { ChangeEvent, useState } from "react"
 import { DateNote } from "../../helpers/DateNote"
+import { useForm } from "../../hooks/useForm"
 import { useNotes } from "../../Notes/hooks/useNote"
-import { Note } from "../../Notes/interfaces/interfaces"
 import './addnote.css'
 
 export const AddNote = () => {
 
     const { today } = DateNote()
 
-    const { addNote } = useNotes();
-
-    const [newNote, setNewNote] = useState<Note>({
+    const { forms, handleInputChange } = useForm({
         id: 0,
         interesting: true,
         description: '',
         title: '',
         created: today
-    })
+    });
 
-    const handleInputChange = ({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = target
-        setNewNote({
-            ...newNote,
-            [name]: value
-        })
-    }
+    const { addNote } = useNotes();
 
     const handleSubmit = () => {
-        addNote(newNote);
+        addNote(forms);
     }
 
     return (

@@ -1,3 +1,4 @@
 export interface ModalState {
-    active: boolean,
+    active: boolean;
+    name: string
 }

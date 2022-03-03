@@ -1,10 +1,13 @@
 import { useNotes } from '../../Notes/hooks/useNote'
 import './subheader.css'
 import { DateNote } from '../../helpers/DateNote';
+import { useUser } from '../../user/hooks/useUser';
 
 export const Subheader = () => {
 
     const { changeState, noteGeneral } = useNotes();
+
+    const { userstate } = useUser();
 
     const { active } = noteGeneral;
 
@@ -17,9 +20,9 @@ export const Subheader = () => {
     return (
         <div className="subheader">
             <div className="subheader__user">
-                <img src="https://giffiles.alphacoders.com/212/212876.gif" alt="" />
+                <img src={userstate.imageUrl} alt="" />
                 <div className="subheader__userInformation">
-                    <h5>Yeridi Crhis</h5>
+                    <h5>{userstate?.name}</h5>
                     <p>Created at: {today}</p>
                 </div>
             </div>

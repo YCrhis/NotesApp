@@ -4,7 +4,8 @@ import { ModalContext } from "./ModalContext";
 import { ModalReducer } from "./ModalReducer";
 
 const INITIAL_STATE: ModalState = {
-    active: false
+    active: false,
+    name: ''
 }
 
 interface props {
@@ -15,13 +16,9 @@ export const ModalProvider = ({ children }: props) => {
 
     const [modalState, dispatch] = useReducer(ModalReducer, INITIAL_STATE);
 
-    const handleOpen = (state: boolean) => {
+    const handleOpen = (state: ModalState) => {
         dispatch({ type: 'open', payload: state })
     }
-
-    /*  const handleDelete = (delet: boolean) => {
-         dispatch({ type: 'delete', payload: delet })
-     } */
     return (
         <ModalContext.Provider value={{ modalState, handleOpen }}>
             {children}

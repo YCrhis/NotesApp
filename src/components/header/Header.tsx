@@ -8,8 +8,8 @@ export const Header = () => {
 
   const { active } = modalState;
 
-  const handleOpenModal = () => {
-    handleOpen(active)
+  const handleOpenModal = (types: string) => {
+    handleOpen({ active, name: types })
   }
 
   return (
@@ -26,9 +26,14 @@ export const Header = () => {
             <li className='header__container__option icon__animation'><i className="fa-solid fa-crown"></i>&nbsp;&nbsp;<span>Important Notes</span></li>
             <li className='header__container__option icon__animation'><i className="far fa-sad-cry"></i>&nbsp;&nbsp;<span>Second Notes</span></li>
             <li className='header__container__option icon__animation'
-              onClick={handleOpenModal}
+              onClick={() => handleOpenModal('newNote')}
             >
               <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;<span>New Note</span>
+            </li>
+            <li className='header__container__option icon__animation'
+              onClick={() => handleOpenModal('updateUser')}
+            >
+              <i className="fa-solid fa-pen"></i>&nbsp;&nbsp;<span>Update Account</span>
             </li>
           </ul>
         </div>

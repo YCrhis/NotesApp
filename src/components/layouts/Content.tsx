@@ -3,7 +3,10 @@ import './content.css'
 import { Header } from "../header/Header"
 import { Modal } from '../../Modal/component/Modal'
 import { useModal } from '../../Modal/hooks/useModal'
+import { ModalUpdate } from '../../Modal/component/ModalUpdate'
 import { Footer } from '../footer/Footer'
+
+import { AnimatePresence } from 'framer-motion'
 
 interface props {
   children: JSX.Element | JSX.Element[]
@@ -22,10 +25,16 @@ export const Content = ({ children }: props) => {
         {children}
         <Footer />
       </div>
-      {
-        modalState.active &&
-        <Modal />
-      }
+      <AnimatePresence>
+        {
+          modalState.name === 'newNote' &&
+          <Modal />
+        }
+        {
+          modalState.name === 'updateUser' &&
+          <ModalUpdate />
+        }
+      </AnimatePresence>
     </div>
   )
 }

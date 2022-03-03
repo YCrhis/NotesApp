@@ -11,7 +11,7 @@ export const Modal = () => {
     const { active } = modalState;
 
     const handleCloseModel = () => {
-        handleOpen(active)
+        handleOpen({ active, name: 'close' })
     }
 
     return (
