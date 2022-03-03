@@ -1,5 +1,6 @@
+@import url("../../index.css");
 .subheader {
-  background: rgb(46, 35, 59);
+  background: var(--darkheader);
   width: 90%;
   margin: auto;
   padding: 10px;
@@ -7,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.137);
 }
 
 .subheader__userInformation h5 {

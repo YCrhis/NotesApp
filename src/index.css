@@ -8,9 +8,31 @@
   list-style: none;
 }
 
+:root {
+  --dark: rgb(31, 24, 41);
+  --white: rgb(255, 254, 210);
+  --text: white;
+}
+
+.theme {
+  background: var(--darkheader);
+}
+
 body {
-  background: rgb(31, 24, 41);
-  color: white;
+  background: var(--background);
+  color: var(--text-color);
+  transition: all 500ms;
+}
+
+body.light {
+  --background: var(--white);
+  --text-color: var(--dark);
+}
+
+body.dark {
+  --background: var(--dark);
+  --text-color: var(--text);
+  --darkheader: rgb(46, 35, 59);
 }
 
 .icon__animation {

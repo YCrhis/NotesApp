@@ -2,7 +2,8 @@ import { useContext } from 'react'
 import { useForm } from '../../hooks/useForm'
 import { useUser } from '../../user/hooks/useUser'
 import { ModalContext } from '../context/ModalContext'
-import './modalUpdate.css'
+import './modalUpdate.css';
+import { modalAnimation, transition } from '../../animations';
 
 import { motion } from 'framer-motion'
 
@@ -32,11 +33,14 @@ export const ModalUpdate = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: -300 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
+            initial="start"
+            animate="in"
+            exit="exit"
+            variants={modalAnimation}
+            transition={transition}
             key={"modal"}
-            className='modal__update'>
+            className='modal__update'
+        >
             <div className="modal__content__update">
                 <i className="fa-solid fa-x" onClick={handleCloseModel}></i>
                 <h2>Update Account</h2>

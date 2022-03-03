@@ -1,3 +1,5 @@
+@import url(../../index.css);
+
 .header {
   position: fixed;
   left: 0;
@@ -6,7 +8,7 @@
   width: 20%;
   height: 100vh;
   padding: 1rem;
-  background: rgb(46, 35, 59);
+  background: var(--darkheader);
 }
 
 .header__container h1 {
@@ -25,7 +27,7 @@
 .header__container__option {
   margin-bottom: 1rem;
   padding: 10px;
-  color: rgb(255, 255, 255);
+  color: var(--text-color);
   transition: all 500ms;
 }
 

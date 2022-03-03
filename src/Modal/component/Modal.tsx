@@ -1,7 +1,9 @@
 import { useContext } from 'react'
 import { AddNote } from '../../components/AddNote/AddNote'
 import { ModalContext } from '../context/ModalContext'
+import { modalAnimation, transition } from '../../animations';
 import './modal.css'
+import { motion } from 'framer-motion';
 
 export const Modal = () => {
 
@@ -15,12 +17,20 @@ export const Modal = () => {
     }
 
     return (
-        <div className='modal'>
+        <motion.div
+            className='modal'
+            initial="start"
+            animate="in"
+            exit="exit"
+            variants={modalAnimation}
+            transition={transition}
+            key={"modal_note"}
+        >
             <div className="modal__content">
                 <i className="fa-solid fa-x" onClick={handleCloseModel}></i>
                 <h2>Create Note</h2>
                 <AddNote />
             </div>
-        </div>
+        </motion.div>
     )
 }

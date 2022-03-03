@@ -2,6 +2,8 @@ import './notecard.css';
 import { useNotes } from "../hooks/useNote";
 import { Note } from "../interfaces/interfaces";
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { cardAnimation, transition } from '../../animations';
 
 interface NoteCardProps {
     note: Note
@@ -11,7 +13,7 @@ export const NoteCard = ({ note }: NoteCardProps) => {
 
     const { toggleNote, handleDeleteNote } = useNotes();
 
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
 
 
     const handleNoInteresting = () => {
@@ -23,9 +25,15 @@ export const NoteCard = ({ note }: NoteCardProps) => {
     }
 
     return (
-        <div
+        <motion.div
             style={{ background: note.interesting ? '' : 'rgb(59, 35, 47)' }}
             className="card"
+            initial="start"
+            animate="in"
+            exit="exit"
+            transition={transition}
+            variants={cardAnimation}
+            key={"new"}
         >
             <h4><span>Note</span> / {note.title} </h4>
             <p className='card__date'>Created at: {note.created}</p>
@@ -48,6 +56,6 @@ export const NoteCard = ({ note }: NoteCardProps) => {
                     </div>
                 </div>
             }
-        </div>
+        </motion.div>
     )
 }
