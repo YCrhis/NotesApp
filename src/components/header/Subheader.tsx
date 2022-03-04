@@ -17,7 +17,7 @@ export const Subheader = () => {
     return (
         <div className="subheader">
             <div className="subheader__user">
-                <img src={userstate.imageUrl} alt="" />
+                <img src={userstate?.imageUrl} alt="" />
                 <div className="subheader__userInformation">
                     <h5>{userstate?.name}</h5>
                     <p>Created at: {userstate?.created}</p>
