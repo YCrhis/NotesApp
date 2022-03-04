@@ -18,11 +18,11 @@ export const Login = () => {
         created: today
     });
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         if (forms.name === '' || forms.imageUrl === '') {
             alert('Ingrese todos los datos')
         } else {
-            handleUser(forms)
+            await handleUser(forms)
         }
     }
 

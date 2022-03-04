@@ -1,6 +1,6 @@
+import { useEffect } from "react"
 import { ModalProvider } from "../../Modal/context/ModalProvider"
 import { NoteList } from "../../Notes/components/NoteList"
-import NotesProvider from "../../Notes/context/NotesProvider"
 import { Login } from "../../user/components/Login"
 import { useUser } from "../../user/hooks/useUser"
 import { Banner } from "../Banner/Banner"
@@ -15,15 +15,13 @@ export const AppContent = () => {
     return (
         <div>
             {!userstate ? <Login /> :
-                <NotesProvider>
-                    <ModalProvider>
-                        <Content>
-                            <Banner />
-                            <Subheader />
-                            <NoteList />
-                        </Content>
-                    </ModalProvider>
-                </NotesProvider>
+                <ModalProvider>
+                    <Content>
+                        <Banner />
+                        <Subheader />
+                        <NoteList />
+                    </Content>
+                </ModalProvider>
             }
         </div>
     )
