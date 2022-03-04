@@ -27,12 +27,15 @@ body {
 body.light {
   --background: var(--white);
   --text-color: var(--dark);
+  --darkheader: rgb(255, 254, 198);
+  --input-color: rgb(233, 233, 233);
 }
 
 body.dark {
   --background: var(--dark);
   --text-color: var(--text);
   --darkheader: rgb(46, 35, 59);
+  --input-color: rgb(31, 24, 41);
 }
 
 .icon__animation {

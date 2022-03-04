@@ -1,14 +1,23 @@
 import { DateNote } from "../../helpers/DateNote"
 import { useForm } from "../../hooks/useForm"
 import { useNotes } from "../../Notes/hooks/useNote"
+import { ModalContext } from "../../Modal/context/ModalContext"
 import './addnote.css'
+import { useContext } from "react"
+import { NumberRandom } from "../../helpers/NumberRandom"
 
 export const AddNote = () => {
 
-    const { today } = DateNote()
+    const { today } = DateNote();
+
+    const { num } = NumberRandom();
+
+    const { handleOpen, modalState } = useContext(ModalContext);
+
+    const { active } = modalState;
 
     const { forms, handleInputChange } = useForm({
-        id: 0,
+        id: num,
         interesting: true,
         description: '',
         title: '',
@@ -17,8 +26,19 @@ export const AddNote = () => {
 
     const { addNote } = useNotes();
 
+    const handleCloseModel = () => {
+        handleOpen({ active, name: 'close' })
+    }
+
     const handleSubmit = () => {
-        addNote(forms);
+        if (forms.description === '' || forms.title === '') {
+            alert('ingrese datos')
+        }
+        else {
+            addNote(forms);
+            handleCloseModel();
+        }
+
     }
 
     return (

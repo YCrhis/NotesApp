@@ -24,7 +24,7 @@ export const Header = () => {
           </div>
           <ul>
             <li className='header__container__option icon__animation'><i className="fa-solid fa-crown"></i>&nbsp;&nbsp;<span>Important Notes</span></li>
-            <li className='header__container__option icon__animation'><i className="far fa-sad-cry"></i>&nbsp;&nbsp;<span>Second Notes</span></li>
+            <li className='header__container__option icon__animation'><i className="fa-solid fa-poo"></i>&nbsp;&nbsp;<span>Second Notes</span></li>
             <li className='header__container__option icon__animation'
               onClick={() => handleOpenModal('newNote')}
             >

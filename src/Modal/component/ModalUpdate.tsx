@@ -4,12 +4,15 @@ import { useUser } from '../../user/hooks/useUser'
 import { ModalContext } from '../context/ModalContext'
 import './modalUpdate.css';
 import { modalAnimation, transition } from '../../animations';
+import { DateNote } from '../../helpers/DateNote';
 
 import { motion } from 'framer-motion'
 
 export const ModalUpdate = () => {
 
     const { userstate, handleUser } = useUser();
+
+    const { today } = DateNote();
 
     const { handleOpen, modalState } = useContext(ModalContext);
 
@@ -22,7 +25,8 @@ export const ModalUpdate = () => {
     const { forms, handleInputChange } = useForm({
         name: userstate.name,
         imageUrl: userstate.imageUrl,
-        active: true
+        active: true,
+        created: today
     })
 
     const handleUpdate = () => {

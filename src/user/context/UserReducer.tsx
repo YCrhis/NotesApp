@@ -12,7 +12,8 @@ export const UserReducer = (state: User, action: userActions): User => {
                 ...state,
                 name: action.payload.name,
                 imageUrl: action.payload.imageUrl,
-                active: action.payload.active
+                active: action.payload.active,
+                created: action.payload.created
             }
         default:
             return state

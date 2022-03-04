@@ -2,11 +2,16 @@ import { useEffect, useReducer } from 'react'
 import { User } from '../interfaces/interfaces'
 import { UserContext } from './UserContext'
 import { UserReducer } from './UserReducer'
+import { DateNote } from '../../helpers/DateNote'
+
+
+const { today } = DateNote();
 
 const INITAL_STATE: User = {
     name: '',
     imageUrl: '',
-    active: false
+    active: false,
+    created: today
 }
 
 interface props {

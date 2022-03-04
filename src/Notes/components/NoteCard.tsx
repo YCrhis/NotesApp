@@ -15,7 +15,6 @@ export const NoteCard = ({ note }: NoteCardProps) => {
 
     const [open, setOpen] = useState(false);
 
-
     const handleNoInteresting = () => {
         toggleNote(note.id)
     }
