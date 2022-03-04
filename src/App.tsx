@@ -7,9 +7,7 @@ import { UserProvider } from './user/context/UserProvider';
 function App() {
   return (
     <UserProvider>
-      <NotesProvider>
-        <AppContent />
-      </NotesProvider>
+      <AppContent />
     </UserProvider>
   );
 }
