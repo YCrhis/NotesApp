@@ -29,7 +29,7 @@ const NotesProvider = ({ children }: props) => {
     const localData = localStorage.getItem('notes');
 
     const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, () => {
-        return localData ? JSON.parse(localData) : JSON.stringify(INITIAL_STATE)
+        return localData ? JSON.parse(localData) : []
     });
 
     const toggleNote = (id: number) => {
