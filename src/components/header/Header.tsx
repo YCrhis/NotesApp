@@ -1,8 +1,11 @@
 import './header.css'
 import { Switch } from './Switch'
 import { useModal } from '../../Modal/hooks/useModal'
+import { useNotes } from '../../Notes/hooks/useNote'
 
 export const Header = () => {
+
+  const { changeState } = useNotes();
 
   const { handleOpen, modalState } = useModal();
 
@@ -23,8 +26,8 @@ export const Header = () => {
             <h3><i className="fa-solid fa-align-left"></i> <span>Options</span></h3>
           </div>
           <ul>
-            <li className='header__container__option icon__animation'><i className="fa-solid fa-crown"></i>&nbsp;&nbsp;<span>Important Notes</span></li>
-            <li className='header__container__option icon__animation'><i className="fa-solid fa-poo"></i>&nbsp;&nbsp;<span>Second Notes</span></li>
+            <li className='header__container__option icon__animation' onClick={() => changeState('Interesting')}><i className="fa-solid fa-crown"></i>&nbsp;&nbsp;<span>Important Notes</span></li>
+            <li className='header__container__option icon__animation' onClick={() => changeState('No Interesting')}><i className="fa-solid fa-poo"></i>&nbsp;&nbsp;<span>Second Notes</span></li>
             <li className='header__container__option icon__animation'
               onClick={() => handleOpenModal('newNote')}
             >
