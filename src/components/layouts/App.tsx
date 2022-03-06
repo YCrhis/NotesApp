@@ -28,7 +28,6 @@ export const AppContent = () => {
                 <NotesProvider>
                     {!userstate ? <Login /> :
                         load === false ? <Loader /> :
-
                             <ModalProvider>
                                 <Content>
                                     <Banner />

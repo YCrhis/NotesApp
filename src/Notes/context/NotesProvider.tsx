@@ -44,7 +44,7 @@ const NotesProvider = ({ children }: props) => {
         dispatch({ type: 'deleteNote', payload: { id } })
     }
 
-    const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, () => {
+    const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, function async() {
         return localData ? JSON.parse(localData) : localStorage.setItem('notes', JSON.stringify(INITIAL_STATE))
     });
 
