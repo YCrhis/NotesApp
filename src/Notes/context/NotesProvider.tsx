@@ -28,10 +28,6 @@ const NotesProvider = ({ children }: props) => {
 
     const localData = localStorage.getItem('notes');
 
-    const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, () => {
-        return localData ? JSON.parse(localData) : localStorage.setItem('notes', JSON.stringify(INITIAL_STATE))
-    });
-
     const toggleNote = (id: number) => {
         dispatch({ type: 'toggleInteresting', payload: { id } })
     }
@@ -48,12 +44,16 @@ const NotesProvider = ({ children }: props) => {
         dispatch({ type: 'deleteNote', payload: { id } })
     }
 
+    const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, () => {
+        return localData ? JSON.parse(localData) : localStorage.setItem('notes', JSON.stringify(INITIAL_STATE))
+    });
+
     useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(notestate))
     }, [notestate])
 
     return (
-        <NotesContext.Provider value={{ notestate, toggleNote, addNote, changeState, handleDeleteNote }}>
+        <NotesContext.Provider value={{ toggleNote, addNote, changeState, handleDeleteNote, notestate }}>
             {children}
         </NotesContext.Provider>
     )

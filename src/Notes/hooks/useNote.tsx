@@ -4,7 +4,7 @@ import { NotesContext } from "../context/NotesContext";
 export const useNotes = () => {
     const { notestate, toggleNote, addNote, changeState, handleDeleteNote } = useContext(NotesContext);
 
-    const { notes } = notestate
+    const { notes } = notestate;
 
     return {
         noteGeneral: notestate,
