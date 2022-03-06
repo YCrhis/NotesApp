@@ -16,10 +16,6 @@ export const AppContent = () => {
 
     const { userstate } = useUser();
 
-    const { noteGeneral } = useNotes();
-
-    const { notes } = noteGeneral
-
     const [load, setLoad] = useState(false);
 
     useEffect(() => {
@@ -29,16 +25,19 @@ export const AppContent = () => {
     return (
         <div>
             <AnimatePresence>
-                {!userstate ? <Login /> :
-                    !notes ? <Loader /> :
-                        <ModalProvider>
-                            <Content>
-                                <Banner />
-                                <Subheader />
-                                <NoteList />
-                            </Content>
-                        </ModalProvider>
-                }
+                <NotesProvider>
+                    {!userstate ? <Login /> :
+                        load === false ? <Loader /> :
+
+                            <ModalProvider>
+                                <Content>
+                                    <Banner />
+                                    <Subheader />
+                                    <NoteList />
+                                </Content>
+                            </ModalProvider>
+                    }
+                </NotesProvider>
             </AnimatePresence>
         </div>
     )
