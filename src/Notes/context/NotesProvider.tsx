@@ -26,7 +26,14 @@ interface props {
 
 const NotesProvider = ({ children }: props) => {
 
-    const localData = localStorage.getItem('notes');
+    const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, function async() {
+        const localData = localStorage.getItem('notes');
+        return localData ? JSON.parse(localData) : localStorage.setItem('notes', JSON.stringify(INITIAL_STATE))
+    });
+
+    useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notestate))
+    }, [notestate])
 
     const toggleNote = (id: number) => {
         dispatch({ type: 'toggleInteresting', payload: { id } })
@@ -43,14 +50,6 @@ const NotesProvider = ({ children }: props) => {
     const handleDeleteNote = (id: number) => {
         dispatch({ type: 'deleteNote', payload: { id } })
     }
-
-    const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, function async() {
-        return localData ? JSON.parse(localData) : localStorage.setItem('notes', JSON.stringify(INITIAL_STATE))
-    });
-
-    useEffect(() => {
-        localStorage.setItem('notes', JSON.stringify(notestate))
-    }, [notestate])
 
     return (
         <NotesContext.Provider value={{ toggleNote, addNote, changeState, handleDeleteNote, notestate }}>
