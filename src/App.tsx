@@ -6,11 +6,11 @@ import { UserProvider } from './user/context/UserProvider';
 
 function App() {
   return (
-    <UserProvider>
-      <NotesProvider>
+    <NotesProvider>
+      <UserProvider>
         <AppContent />
-      </NotesProvider>
-    </UserProvider>
+      </UserProvider>
+    </NotesProvider>
   );
 }
 
