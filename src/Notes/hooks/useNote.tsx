@@ -6,6 +6,8 @@ export const useNotes = () => {
 
     const { notes } = notestate;
 
+    console.log(notes)
+
     return {
         noteGeneral: notestate,
         notes: notes,
