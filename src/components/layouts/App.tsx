@@ -9,6 +9,7 @@ import { useUser } from "../../user/hooks/useUser"
 import { Banner } from "../Banner/Banner"
 import { Subheader } from "../header/Subheader"
 import { Loader } from "../loader/Loader"
+import { Presentation } from "../Presentation/Presentation"
 import { Content } from "./Content"
 
 
@@ -24,20 +25,21 @@ export const AppContent = () => {
 
     return (
         <div>
-            <AnimatePresence>
-                {!userstate ? <Login /> :
-                    load === false ? <Loader /> :
-                        <ModalProvider>
-                            <NotesProvider>
-                                <Content>
-                                    <Banner />
-                                    <Subheader />
-                                    <NoteList />
-                                </Content>
-                            </NotesProvider>
-                        </ModalProvider>
-                }
-            </AnimatePresence>
+            <ModalProvider>
+                <AnimatePresence>
+                    {!userstate ? <Presentation /> :
+                        load === false ? <Loader /> :
+
+                            <Content>
+                                <Banner />
+                                <Subheader />
+                                <NoteList />
+                            </Content>
+
+                    }
+                </AnimatePresence>
+            </ModalProvider>
+
         </div >
     )
 }

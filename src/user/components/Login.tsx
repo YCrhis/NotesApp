@@ -7,6 +7,7 @@ import './login.css'
 
 export const Login = () => {
 
+
     const { handleUser } = useUser();
 
     const { today } = DateNote();
@@ -22,8 +23,7 @@ export const Login = () => {
         if (forms.name === '' || forms.imageUrl === '') {
             alert('Ingrese todos los datos')
         } else {
-            await handleUser(forms)
-            window.location.reload();
+            await handleUser(forms);
         }
     }
 
