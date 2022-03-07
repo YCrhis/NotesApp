@@ -23,6 +23,7 @@ export const Login = () => {
             alert('Ingrese todos los datos')
         } else {
             await handleUser(forms)
+            window.location.reload();
         }
     }
 
