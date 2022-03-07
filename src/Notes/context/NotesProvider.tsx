@@ -6,25 +6,26 @@ import { DateNote } from '../../helpers/DateNote';
 
 const { today } = DateNote();
 
-const INITIAL_STATE: NoteState = {
-    notesCount: 2,
-    notes: [
-        {
-            id: 1,
-            description: 'Welcome to NotesApp, here you can write all the notes you want. If you liked the project leave a comment on my social networks :)',
-            interesting: true,
-            title: 'Hello there',
-            created: today
-        },
-    ],
-    active: 'All',
-}
 
 interface props {
     children: JSX.Element | JSX.Element[]
 }
 
 const NotesProvider = ({ children }: props) => {
+
+    const INITIAL_STATE: NoteState = {
+        notesCount: 2,
+        notes: [
+            {
+                id: 1,
+                description: 'Welcome to NotesApp, here you can write all the notes you want. If you liked the project leave a comment on my social networks :)',
+                interesting: true,
+                title: 'Hello there',
+                created: today
+            },
+        ],
+        active: 'All',
+    }
 
     const localData = localStorage.getItem('notes');
 
