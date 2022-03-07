@@ -3,13 +3,11 @@ import { useEffect, useState } from "react"
 import { ModalProvider } from "../../Modal/context/ModalProvider"
 import { NoteList } from "../../Notes/components/NoteList"
 import NotesProvider from "../../Notes/context/NotesProvider"
-import { useNotes } from "../../Notes/hooks/useNote"
 import { Login } from "../../user/components/Login"
 import { useUser } from "../../user/hooks/useUser"
 import { Banner } from "../Banner/Banner"
 import { Subheader } from "../header/Subheader"
 import { Loader } from "../loader/Loader"
-import { Presentation } from "../Presentation/Presentation"
 import { Content } from "./Content"
 
 
@@ -27,14 +25,16 @@ export const AppContent = () => {
         <div>
             <ModalProvider>
                 <AnimatePresence>
-                    {!userstate ? <Presentation /> :
+                    {!userstate ? <Login /> :
                         load === false ? <Loader /> :
 
-                            <Content>
-                                <Banner />
-                                <Subheader />
-                                <NoteList />
-                            </Content>
+                            <NotesProvider>
+                                <Content>
+                                    <Banner />
+                                    <Subheader />
+                                    <NoteList />
+                                </Content>
+                            </NotesProvider>
 
                     }
                 </AnimatePresence>
