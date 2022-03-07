@@ -5,12 +5,15 @@ import { AnimatePresence } from 'framer-motion';
 import { NotFound } from '../../components/NotFound/NotFound';
 
 export const NoteList = () => {
+
     const { lisInteresting, listNotInteresting, notes, noteGeneral } = useNotes();
 
-    const { active } = noteGeneral;
+    const { types } = noteGeneral;
+
+    console.log(types)
 
     const renderContent = () => {
-        if (active === 'All') {
+        if (types === 'All') {
             if (notes.length !== 0) {
                 return (
                     notes.map(note => <NoteCard key={note.id} note={note} />)
@@ -19,7 +22,7 @@ export const NoteList = () => {
                 return <NotFound />
             }
         }
-        if (active === 'Interesting') {
+        if (types === 'Interesting') {
             if (lisInteresting.length !== 0) {
                 return (
                     lisInteresting.map(note => <NoteCard key={note.id} note={note} />)
@@ -28,7 +31,7 @@ export const NoteList = () => {
                 return <NotFound />
             }
         }
-        if (active === 'No Interesting') {
+        if (types === 'No Interesting') {
             if (listNotInteresting.length !== 0) {
                 return (
                     listNotInteresting.map(note => <NoteCard key={note.id} note={note} />)
@@ -41,7 +44,7 @@ export const NoteList = () => {
 
     return (
         <div className="notelist">
-            <h2>List Of {active}</h2>
+            <h2>List Of {types}</h2>
             <AnimatePresence>
                 {renderContent()}
             </AnimatePresence>

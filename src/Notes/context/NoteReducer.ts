@@ -29,7 +29,7 @@ export const NoteReducer = (state: NoteState, action: NoteActions): NoteState =>
         case 'changeState':
             return {
                 ...state,
-                active: action.payload
+                types: action.payload
             }
         case 'deleteNote':
             return {

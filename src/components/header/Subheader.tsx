@@ -8,7 +8,7 @@ export const Subheader = () => {
 
     const { userstate } = useUser();
 
-    const { active } = noteGeneral;
+    const { types } = noteGeneral;
 
     const handleChange = (data: string) => {
         changeState(data)
@@ -26,18 +26,18 @@ export const Subheader = () => {
             <div className="subheader__options">
                 <button
                     onClick={() => handleChange('Interesting')}
-                    className={active === 'Interesting' ? 'button__active' : ''}
+                    className={types === 'Interesting' ? 'buttypes' : ''}
                 ><i className="fa-solid fa-crown"></i> Interesting
                 </button>
                 <button
                     onClick={() => handleChange('No Interesting')}
-                    className={active === 'No Interesting' ? 'button__active' : ''}
+                    className={types === 'No Interesting' ? 'button__active' : ''}
                 >
                     <i className="fa-solid fa-poo"></i> No Interesting
                 </button>
                 <button
                     onClick={() => handleChange('All')}
-                    className={active === 'All' ? 'button__active' : ''}
+                    className={types === 'All' ? 'button__active' : ''}
                 >
                     <i className="fa-solid fa-robot"></i> All
                 </button>

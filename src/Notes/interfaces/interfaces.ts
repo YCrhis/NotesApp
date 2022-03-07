@@ -7,7 +7,6 @@ export interface Note {
 }
 
 export interface NoteState {
-    notesCount: number;
     notes: Note[];
-    active: any;
+    types: any;
 }
