@@ -25,19 +25,19 @@ export const AppContent = () => {
     return (
         <div>
             <AnimatePresence>
-                <NotesProvider>
-                    {!userstate ? <Login /> :
-                        load === false ? <Loader /> :
-                            <ModalProvider>
+                {!userstate ? <Login /> :
+                    load === false ? <Loader /> :
+                        <ModalProvider>
+                            <NotesProvider>
                                 <Content>
                                     <Banner />
                                     <Subheader />
                                     <NoteList />
                                 </Content>
-                            </ModalProvider>
-                    }
-                </NotesProvider>
+                            </NotesProvider>
+                        </ModalProvider>
+                }
             </AnimatePresence>
-        </div>
+        </div >
     )
 }
