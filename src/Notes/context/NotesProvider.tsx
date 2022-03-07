@@ -28,11 +28,16 @@ const NotesProvider = ({ children }: props) => {
 
     const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, () => {
         const localData = localStorage.getItem('notes');
+
         return localData ? JSON.parse(localData) : localStorage.setItem('notes', JSON.stringify(INITIAL_STATE));
     });
 
     useEffect(() => {
-        localStorage.setItem('notes', JSON.stringify(notestate))
+        if (notestate === undefined) {
+            localStorage.setItem('notes', JSON.stringify(INITIAL_STATE))
+        } else {
+            localStorage.setItem('notes', JSON.stringify(notestate))
+        }
     }, [notestate]);
 
     const toggleNote = (id: number) => {
