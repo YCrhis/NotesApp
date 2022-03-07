@@ -26,18 +26,13 @@ interface props {
 
 const NotesProvider = ({ children }: props) => {
 
-    const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE/* , ()=> {
-        const localData = localStorage.getItem('notes');
-        return localData ? JSON.parse(localData) : localStorage.setItem('notes', JSON.stringify(INITIAL_STATE))
-    } */);
+    const localData = localStorage.getItem('notes');
 
-    const loadNotes = () => {
-        const localData = localStorage.getItem('notes');
+    const [notestate, dispatch] = useReducer(NoteReducer, INITIAL_STATE, () => {
         return localData ? JSON.parse(localData) : localStorage.setItem('notes', JSON.stringify(INITIAL_STATE))
-    }
+    });
 
     useEffect(() => {
-        loadNotes();
         localStorage.setItem('notes', JSON.stringify(notestate))
     }, [notestate])
 
