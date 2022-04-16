@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  list-style: none;
+}
+
+:root {
+  --dark: rgb(31, 24, 41);
+  --white: rgb(255, 254, 210);
+  --text: white;
+}
+
+.theme {
+  background: var(--darkheader);
+}
+
+body {
+  background: var(--background);
+  color: var(--text-color);
+  transition: all 500ms;
+}
+
+body.light {
+  --background: var(--white);
+  --text-color: var(--dark);
+  --darkheader: rgb(255, 254, 198);
+  --input-color: rgb(233, 233, 233);
+}
+
+body.dark {
+  --background: var(--dark);
+  --text-color: var(--text);
+  --darkheader: rgb(46, 35, 59);
+  --input-color: rgb(31, 24, 41);
+}
+
+.icon__animation {
+  cursor: pointer;
+}
+
+.icon__animation i {
+  transition: all 200ms;
+}
+
+.icon__animation:hover i {
+  transform: rotate(-30deg) scale(1.4);
+}

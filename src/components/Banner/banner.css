@@ -1,0 +1,29 @@
+.banner {
+  width: 100%;
+}
+
+.banner__container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner__container h1 {
+  font-size: calc(3vw + 2rem);
+}
+.banner__container img {
+  width: 50%;
+}
+
+@media (max-width: 800px) {
+  .banner__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner__container img {
+    width: 100%;
+  }
+}
